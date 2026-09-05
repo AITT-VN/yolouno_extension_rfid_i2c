@@ -11,7 +11,7 @@ import json
 from time import sleep, sleep_ms
 from rfid_expansion import *
 import os
-import uos
+import os
 from machine import SoftI2C, Pin
 
 _SYSNAME = os.uname().sysname
@@ -382,7 +382,7 @@ class RFID:
             if not self.lists[list_name]:  
                 filename = f"{list_name}.json"
                 try:
-                    uos.remove(filename) 
+                    os.remove(filename) 
                 except OSError:  
                     pass  
 
@@ -396,7 +396,7 @@ class RFID:
         if list_name in self.lists:
             del self.lists[list_name]
         try:
-            uos.remove(filename)
+            os.remove(filename)
             print("Remove list success!")
         except OSError:
             pass  
